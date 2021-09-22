@@ -52,3 +52,6 @@ video {
   max-width: 100%;
   display: block;
 }
+#self {
+  width: 50%;
+}
