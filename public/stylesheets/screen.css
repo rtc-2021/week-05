@@ -7,3 +7,27 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 /* stylelint-enable */
 
 /* Begin site styles below */
+
+html {
+  font-family: Verdana, Helvetica, Arial, sans-serif;
+  font-size: 22px;
+  line-height: 26px;
+  padding: 13px;
+}
+#header {
+  padding-bottom: 13px;
+}
+.access {
+  position: absolute;
+  left: -10000px;
+}
+button {
+  background: #092;
+  border: 0;
+  line-height: 1;
+  padding: 13px;
+}
+video {
+  max-width: 100%;
+  display: block;
+}
