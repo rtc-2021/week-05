@@ -53,11 +53,11 @@ function handleButton(e) {
   if (button.className === 'join') {
     button.className = 'leave';
     button.innerText = 'Leave Call';
-    // joinCall();
+    joinCall();
   } else {
     button.className = 'join';
     button.innerText = 'Join Call';
-    // leaveCall();
+    leaveCall();
   }
 }
 
@@ -67,6 +67,9 @@ function joinCall() {
   establishCallFeatures($peer);
 }
 function leaveCall() {
+  $peer.connection.close();
+  $peer.connection = new RTCPeerConnection($self.rtcConfig);
+  displayStream('#peer', null);
   sc.close();
 }
 
@@ -124,6 +127,11 @@ function handleScConnectedPeer() {
 }
 function handleScDisconnectedPeer() {
   console.log('Heard disconnected peer event!');
+  displayStream('#peer', null);
+  $peer.connection.close();
+  $peer.connection = new RTCPeerConnection($self.rtcConfig);
+  registerRtcEvents($peer);
+  establishCallFeatures($peer);
 }
 async function handleScSignal({ description, candidate }) {
   console.log('Heard signal event!');
