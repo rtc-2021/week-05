@@ -36,12 +36,25 @@ registerScEvents();
 const button = document
   .querySelector('#call-button');
 
-button.addEventListener('click', joinCall);
+button.addEventListener('click', handleButton);
 
 document.querySelector('#header h1')
   .innerText = `Welcome to Room #${namespace}`;
 
 /* DOM Events */
+
+function handleButton(e) {
+  const button = e.target;
+  if (button.className === 'join') {
+    button.className = 'leave';
+    button.innerText = 'Leave Call';
+    // joinCall();
+  } else {
+    button.className = 'join';
+    button.innerText = 'Join Call';
+    // leaveCall();
+  }
+}
 
 function joinCall() {
   sc.open();
