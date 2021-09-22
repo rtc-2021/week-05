@@ -16,6 +16,12 @@ html {
 }
 #header {
   padding-bottom: 13px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+}
+#header h1 {
+  flex: 1 1 auto;
 }
 .access {
   position: absolute;
@@ -38,6 +44,7 @@ button {
   color: #EEE;
 }
 #call-button {
+  flex: 0 0 auto;
   box-sizing: border-box;
   width: 200px;
 }
